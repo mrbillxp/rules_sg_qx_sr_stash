@@ -1,6 +1,6 @@
 # Ruleset fetch and merge automation
 
-This repo contains a script to fetch rules from https://ruleset.skk.moe/List/, remove known malicious entries, merge selected rule groups, and produce output files for Surge and Quantumult X.
+This repo contains a script to fetch rules from https://ruleset.skk.moe/, remove unneeded entries, merge selected rule groups, and produce output files for Surge and Quantumult X.
 
 Usage
 
