@@ -245,6 +245,16 @@ def main():
     merge_and_write(cn_sources,
                     os.path.join(OUT_DIR, 'CN_Domestic_for_Surge.conf'),
                     os.path.join(OUT_DIR, 'CN_Domestic_for_QX.snippet'))
+    # skk_reject
+    cn_sources = [
+        'https://ruleset.skk.moe/List/domainset/reject.conf',
+        'https://ruleset.skk.moe/List/domainset/reject_extra.conf',
+        'https://ruleset.skk.moe/List/domainset/reject_phishing.conf',
+        'https://ruleset.skk.moe/List/non_ip/reject.conf',
+    ]
+    merge_and_write(cn_sources,
+                    os.path.join(OUT_DIR, 'skk_reject_for_Surge.conf'),
+                    os.path.join(OUT_DIR, 'skk_reject_for_QX.snippet'))
 
     print('Done. Outputs are in the generated/ directory.')
 
