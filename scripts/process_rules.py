@@ -17,10 +17,11 @@ except Exception:
     print("Missing dependencies. Run: pip install -r requirements.txt")
     sys.exit(1)
 
-BASE_ROOT = 'https://ruleset.skk.moe/List/'
+BASE_ROOT = 'https://ruleset.skk.moe/'
 BAD_PATTERNS = [
     "DOMAIN,this_ruleset_is_made_by_sukkaw.ruleset.skk.moe",
     "7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe",
+    "chat.z.ai",
 ]
 
 OUT_DIR = 'generated'
@@ -75,7 +76,7 @@ def crawl_and_mirror(root_url=BASE_ROOT, dest='List'):
         # get relative path after /List/
         parsed = urlparse(f)
         rel = parsed.path
-        idx = rel.find('/List/')
+        idx = rel.find('/')
         if idx != -1:
             relpath = rel[idx+1:]
         else:
@@ -136,8 +137,8 @@ def extract_domain_token(line):
             return None
         return (left.upper(), domain)
     # if starts with dot => suffix
-    if line.startswith('.'):
-        return ('DOMAIN-SUFFIX', line.lstrip('.'))
+    # if line.startswith('.'):
+    #    return ('DOMAIN-SUFFIX', line.lstrip('.'))
     # if contains spaces or slashes or colons, skip
     if ' ' in line or '/' in line or ':' in line:
         return None
